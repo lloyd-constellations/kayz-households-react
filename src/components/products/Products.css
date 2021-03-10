@@ -56,7 +56,9 @@
     cursor: pointer;
     background: rgb(255, 167, 5);
 }
-
+.product-cta .cart-cta{
+ padding: 6px 20px;
+}
 .cart-cta .count{
     font-size: 14px;
     font-weight: 300;
