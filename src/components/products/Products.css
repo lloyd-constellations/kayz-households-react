@@ -1,6 +1,7 @@
 .products-container {
   width: 80vw;
   margin: auto;
+  padding: 5rem 0;
 }
 .products-grid {
   margin: auto;
