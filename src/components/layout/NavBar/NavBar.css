@@ -1,18 +1,20 @@
 nav {
   background: rgb(185, 1, 1);
-  padding: 0.5rem 4rem;
+  width: 100vw;
+  padding: 0.7rem 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
 }
-.nav-links a {
+.nav-links a, .cart a {
   text-decoration: none;
   margin-right: 2rem;
   color: rgb(245, 245, 245);
   font-size: 13px;
   display: inline-block;
 }
-.nav-links a:hover {
+.nav-links a:hover, .cart a:hover {
   text-decoration: underline;
   color: rgb(220, 220, 220);
 }
@@ -20,7 +22,7 @@ nav {
   display: flex;
   align-items: center;
 }
-.nav-links svg {
+.nav-links svg, .cart svg {
   margin-right: 5px;
 }
 .social-links a {
