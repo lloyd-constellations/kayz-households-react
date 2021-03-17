@@ -4,7 +4,7 @@ import ProductItems from "../../components/products/ProductItems";
 const initialState = {
   productItems: [],
   cartItems: [],
-  cartAmount: 0,
+  cartTotalAmount: 0,
 };
 
 const productsSlice = createSlice({
@@ -15,21 +15,34 @@ const productsSlice = createSlice({
       return { ...state, productItems: ProductItems };
     },
     addToCart(state, action) {
-      state.productItems.map((productItem) => {
+      let tempProductItems = state.productItems.map((productItem) => {
         if (productItem.id === action.payload.id) {
+          // Update a product
           productItem = {
             ...productItem,
-            productAmount: productItem.productAmount + 1,
+            cartAmount: productItem.cartAmount + 1,
           };
-          state.cartItems.push(productItem);
-          console.log(productItem)
-        }
-      });
 
-      // let tempProducts = state.productItems.map(productItem => {
-      //   return productItem;
-      // });
-      // return { ...state, productItems: tempProducts };
+          // Update the cart
+          const nextCartItems = [...state.cartItems];
+          const existingIndex = nextCartItems.findIndex(
+            (item) => item.id === action.payload.id
+          );
+
+          if (existingIndex >= 0) {
+            nextCartItems[existingIndex] = {
+              ...productItem,
+            };
+          } else {
+            nextCartItems.push(productItem);
+          }
+
+          state.cartItems = nextCartItems;
+        }
+        return productItem;
+      });
+      state.productItems = tempProductItems;
+      // return { ...state, productItems: tempProductItems };
     },
   },
 });

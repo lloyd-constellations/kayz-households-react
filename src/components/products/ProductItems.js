@@ -7,18 +7,21 @@ const ProductItems = [
     desc: "Red",
     price: 599.99,
     image: pot,
+    cartAmount: 0,
   },
   {
     id: 2,
     title: "Pots and Pans Set 2",
     price: 499.99,
     image: pot,
+    cartAmount: 0
   },
   {
     id: 3,
     title: "Pots and Pans Set 3",
     price: 699.99,
     image: pot,
+    cartAmount: 0
   },
   {
     id: 4,
@@ -26,30 +29,35 @@ const ProductItems = [
     desc: "Red",
     price: 599.99,
     image: pot,
+     cartAmount: 0,
   },
   {
     id: 5,
     title: "Pots and Pans Set 2",
     price: 499.99,
     image: pot,
+     cartAmount: 0,
   },
   {
     id: 6,
     title: "Pots and Pans Set 3",
     price: 699.99,
     image: pot,
+     cartAmount: 0,
   },
   {
     id: 7,
     title: "Pots and Pans Set 2",
     price: 499.99,
     image: pot,
+    cartAmount: 0,
   },
   {
     id: 8,
     title: "Pots and Pans Set 3",
     price: 699.99,
     image: pot,
+    cartAmount: 0,
   },
 ];
 
