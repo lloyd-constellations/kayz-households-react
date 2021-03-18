@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../store/slices/productsSlice";
 
+import { Link } from "react-router-dom";
+
 const Product = ({ product }) => {
   const dispatch = useDispatch();
 
@@ -16,7 +18,8 @@ const Product = ({ product }) => {
           {product.price}
         </p>
         <div className="product-cta">
-          <button>-</button>
+          <button className="minus">-</button>
+          <Link to="/cart">
             <button className="cart-cta">
               <span>
                 <svg
@@ -32,7 +35,8 @@ const Product = ({ product }) => {
               </span>
               <span className="count">{product.cartAmount}</span>
             </button>
-          <button onClick={() => dispatch(addToCart(product))}>+</button>
+          </Link>
+          <button  className="add" onClick={() => dispatch(addToCart(product))}>+</button>
         </div>
       </div>
     </>
