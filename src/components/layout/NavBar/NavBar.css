@@ -6,17 +6,19 @@ nav {
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  top:0;
+  top: 0;
   z-index: 99;
 }
-.nav-links a, .cart a {
+.nav-links a,
+.cart a {
   text-decoration: none;
   margin-right: 2rem;
   color: rgb(245, 245, 245);
   font-size: 14px;
   display: inline-block;
 }
-.nav-links a:hover, .cart a:hover {
+.nav-links a:hover,
+.cart a:hover {
   text-decoration: underline;
   color: rgb(220, 220, 220);
 }
@@ -24,7 +26,8 @@ nav {
   display: flex;
   align-items: center;
 }
-.nav-links svg, .cart svg {
+.nav-links svg,
+.cart svg {
   margin-right: 5px;
 }
 .social-links a {
@@ -35,4 +38,15 @@ nav {
 }
 .social-links a:hover {
   color: rgb(220, 220, 220);
+}
+.cart-quantity {
+  font-size: 12px;
+  background: orangered;
+  color: #fff;
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

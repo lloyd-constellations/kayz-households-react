@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { getTotals } from "../../store/slices/productsSlice";
 
 const CartContainer = () => {
-  const { cartItems, cartTotalAmount } = useSelector((state) => state.products);
+  const { cartItems, cartTotalAmount, cartTotalQuantity } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -18,7 +18,7 @@ const CartContainer = () => {
   return (
     <>
       <div className="cart-container">
-        <h2>Cart - {cartItems.length} Items</h2>
+        <h2>Cart - { cartTotalQuantity } Items</h2>
         {cartItems.length === 0 ? (
           <p>Your cart is current empty!</p>
         ) : (
