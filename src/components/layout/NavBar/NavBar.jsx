@@ -10,7 +10,7 @@ const NavBar = () => {
     <>
       <nav>
         <div className="nav-links">
-          <Link to="/">Logo</Link>
+          <Link to="/">Kayz Households</Link>
           <a href="#">
             <span className="center-items-v">
               <svg

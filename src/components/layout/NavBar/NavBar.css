@@ -41,12 +41,14 @@ nav {
 }
 .cart-quantity {
   font-size: 12px;
-  background: orangered;
-  color: #fff;
+  background: rgb(255, 247, 0);
+  color: rgb(9, 9, 9);
   height: 1.2rem;
   width: 1.2rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  outline: none;
 }
