@@ -7,7 +7,7 @@ const ProductItems = [
     desc: "Red",
     price: 599.99,
     image: pot,
-    cartAmount: 0,
+    cartQuantity: 0,
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const ProductItems = [
     desc: "Red",
     price: 499.99,
     image: pot,
-    cartAmount: 0,
+    cartQuantity: 0,
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const ProductItems = [
     desc: "Red",
     price: 699.99,
     image: pot,
-    cartAmount: 0,
+    cartQuantity: 0,
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const ProductItems = [
     desc: "Red",
     price: 599.99,
     image: pot,
-    cartAmount: 0,
+    cartQuantity: 0,
   },
   {
     id: 5,
@@ -40,7 +40,7 @@ const ProductItems = [
     desc: "Red",
     price: 499.99,
     image: pot,
-    cartAmount: 0,
+    cartQuantity: 0,
   },
   {
     id: 6,
@@ -48,7 +48,7 @@ const ProductItems = [
     desc: "Red",
     price: 699.99,
     image: pot,
-    cartAmount: 0,
+    cartQuantity: 0,
   },
   {
     id: 7,
@@ -56,14 +56,15 @@ const ProductItems = [
     desc: "Red",
     price: 499.99,
     image: pot,
-    cartAmount: 0,
+    cartQuantity: 0,
   },
   {
     id: 8,
     title: "Pots and Pans Set 3",
+    desc: "Red",
     price: 699.99,
     image: pot,
-    cartAmount: 0,
+    cartQuantity: 0,
   },
 ];
 

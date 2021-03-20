@@ -1,12 +1,12 @@
 .products-container {
-  width: 80vw;
+  width: 90vw;
   margin: auto;
   padding: 5rem 0;
 }
 .products-grid {
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(9rem, 15rem));
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 17rem));
   justify-content: space-evenly;
   gap: 1.2rem;
 }
@@ -19,7 +19,7 @@
   border-radius: 12px;
 }
 .product img {
-  height: 150px;
+  height: 200px;
   width: auto;
   border-radius: 9px;
 }

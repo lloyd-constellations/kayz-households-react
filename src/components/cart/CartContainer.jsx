@@ -2,11 +2,19 @@ import React from "react";
 import "./Cart.css";
 
 import CartItem from "./CartItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { getTotals } from "../../store/slices/productsSlice";
+
 const CartContainer = () => {
-  const cartItems = useSelector((state) => state.products.cartItems);
+  const { cartItems, cartTotalAmount } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(getTotals());
+  }, [cartItems, dispatch]);
+
   return (
     <>
       <div className="cart-container">
@@ -22,7 +30,7 @@ const CartContainer = () => {
                 ))}
             </div>
             <div className="cart-totals">
-              <h3>Total: xxxx</h3>
+              <h3>Total: KSH.{cartTotalAmount}</h3>
               <button>Proceed To Checkout</button>
               <button className="clear-cart">Clear Cart</button>
               <Link to="/">
@@ -32,11 +40,11 @@ const CartContainer = () => {
                     width="20"
                     height="20"
                     fill="currentColor"
-                    class="bi bi-arrow-left"
+                    className="bi bi-arrow-left"
                     viewBox="0 0 16 16"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                     />
                   </svg>

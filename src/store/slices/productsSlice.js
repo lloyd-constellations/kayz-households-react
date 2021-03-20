@@ -4,6 +4,7 @@ import ProductItems from "../../components/products/ProductItems";
 const initialState = {
   productItems: [],
   cartItems: [],
+  cartTotalQuantity: 0,
   cartTotalAmount: 0,
 };
 
@@ -17,13 +18,11 @@ const productsSlice = createSlice({
     addToCart(state, action) {
       let tempProductItems = state.productItems.map((productItem) => {
         if (productItem.id === action.payload.id) {
-          // Update a product
           productItem = {
             ...productItem,
-            cartAmount: productItem.cartAmount + 1,
+            cartQuantity: productItem.cartQuantity + 1,
           };
 
-          // Update the cart
           const nextCartItems = [...state.cartItems];
           const existingIndex = nextCartItems.findIndex(
             (item) => item.id === action.payload.id
@@ -42,11 +41,29 @@ const productsSlice = createSlice({
         return productItem;
       });
       state.productItems = tempProductItems;
-      // return { ...state, productItems: tempProductItems };
+    },
+    getTotals(state, action) {
+      let { total, quantity } = state.cartItems.reduce(
+        (cartTotal, cartItem) => {
+          const { price, cartQuantity } = cartItem;
+          const itemTotal = price * cartQuantity;
+
+          cartTotal.total += itemTotal;
+          cartTotal.quantity += cartQuantity;
+
+          return cartTotal;
+        },
+        {
+          total: 0,
+          quantity: 0,
+        }
+      );
+      total = parseFloat(total.toFixed(2));
+      return { ...state, cartTotalQuantity: quantity, cartTotalAmount: total };
     },
   },
 });
 
-export const { productsFetch, addToCart } = productsSlice.actions;
+export const { productsFetch, addToCart, getTotals } = productsSlice.actions;
 
 export default productsSlice.reducer;

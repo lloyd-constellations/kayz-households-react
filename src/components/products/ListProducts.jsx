@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import Product from "./Product";
 import { useDispatch, useSelector } from "react-redux";
-import { productsFetch } from "../../store/slices/productsSlice";
+import { getTotals } from "../../store/slices/productsSlice";
 
 import "./Products.css";
 
 const ListProducts = () => {
-  const dispatch = useDispatch();
   const products = useSelector((state) => state.products.productItems);
-  console.log("hey", products);
-  useEffect(() => {
-    dispatch(productsFetch());
-  }, [dispatch]);
+  const dispatch = useDispatch()
+
+  React.useEffect(() => {
+    dispatch(getTotals());
+  }, [products, dispatch]);
 
   return (
     <>
