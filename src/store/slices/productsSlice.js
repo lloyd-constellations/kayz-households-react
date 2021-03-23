@@ -33,10 +33,10 @@ const productsSlice = createSlice({
             nextCartItems[existingIndex] = {
               ...productItem,
             };
-            toast.success("Increased product quantity");
+            toast.success("🔼 Increased product quantity");
           } else {
             nextCartItems.push(productItem);
-            toast.success("Product added to cart");
+            toast.success("➕ Product added to cart");
           }
 
           state.cartItems = nextCartItems;
@@ -66,7 +66,7 @@ const productsSlice = createSlice({
             }
 
             state.cartItems = nextCartItems;
-            toast.error("Decreased product quantity");
+            toast.error("🔽 Decreased product quantity");
           } else if (productItem.cartQuantity === 1) {
             productItem = {
               ...productItem,
@@ -79,7 +79,7 @@ const productsSlice = createSlice({
               (cartItem) => cartItem.id !== action.payload.id
             );
 
-            toast.error("Product removed from cart");
+            toast.error("✖ Product removed from cart");
           }
         }
         return productItem;
@@ -99,7 +99,7 @@ const productsSlice = createSlice({
           state.cartItems = nextCartItems.filter(
             (cartItem) => cartItem.id !== action.payload.id
           );
-          toast.error("Product removed from cart");
+          toast.error("✖ Product removed from cart");
         }
         return productItem;
       });
