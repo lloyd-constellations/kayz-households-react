@@ -6,9 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { getTotals } from "../../store/slices/productsSlice";
+import { clearCart } from "../../store/slices/productsSlice";
 
 const CartContainer = () => {
-  const { cartItems, cartTotalAmount, cartTotalQuantity } = useSelector((state) => state.products);
+  const { cartItems, cartTotalAmount, cartTotalQuantity } = useSelector(
+    (state) => state.products
+  );
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -18,7 +21,7 @@ const CartContainer = () => {
   return (
     <>
       <div className="cart-container">
-        <h2>Cart - { cartTotalQuantity } Items</h2>
+        <h2>Cart - {cartTotalQuantity} Items</h2>
         {cartItems.length === 0 ? (
           <p>Your cart is current empty!</p>
         ) : (
@@ -32,7 +35,12 @@ const CartContainer = () => {
             <div className="cart-totals">
               <h3>Total: KSH.{cartTotalAmount}</h3>
               <button>Proceed To Checkout</button>
-              <button className="clear-cart">Clear Cart</button>
+              <button
+                className="clear-cart"
+                onClick={() => dispatch(clearCart())}
+              >
+                Clear Cart
+              </button>
               <Link to="/">
                 <span>
                   <svg

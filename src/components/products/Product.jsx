@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../store/slices/productsSlice";
+import { addToCart, decreaseCart } from "../../store/slices/productsSlice";
 
 import { Link } from "react-router-dom";
 
@@ -18,7 +18,7 @@ const Product = ({ product }) => {
           {product.price}
         </p>
         <div className="product-cta">
-          <button className="minus">-</button>
+          <button className="minus" onClick={() => dispatch(decreaseCart(product))}>-</button>
           <Link to="/cart">
             <button className="cart-cta">
               <span>

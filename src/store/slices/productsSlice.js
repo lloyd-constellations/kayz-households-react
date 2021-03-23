@@ -42,6 +42,62 @@ const productsSlice = createSlice({
       });
       state.productItems = tempProductItems;
     },
+    decreaseCart(state, action) {
+      let tempProductItems = state.productItems.map((productItem) => {
+        if (productItem.id === action.payload.id) {
+          if (productItem.cartQuantity > 1) {
+            productItem = {
+              ...productItem,
+              cartQuantity: productItem.cartQuantity - 1,
+            };
+
+            const nextCartItems = [...state.cartItems];
+            const existingIndex = nextCartItems.findIndex(
+              (item) => item.id === action.payload.id
+            );
+
+            if (existingIndex >= 0) {
+              nextCartItems[existingIndex] = {
+                ...productItem,
+              };
+            }
+
+            state.cartItems = nextCartItems;
+          } else {
+            productItem = {
+              ...productItem,
+              cartQuantity: 0,
+            };
+
+            const nextCartItems = [...state.cartItems];
+
+            state.cartItems = nextCartItems.filter(
+              (cartItem) => cartItem.id !== action.payload.id
+            );
+          }
+        }
+        return productItem;
+      });
+      state.productItems = tempProductItems;
+    },
+    removeFromCart(state, action) {
+      let tempProductItems = state.productItems.map((productItem) => {
+        if (productItem.id === action.payload.id) {
+          productItem = {
+            ...productItem,
+            cartQuantity: 0,
+          };
+
+          const nextCartItems = [...state.cartItems];
+
+          state.cartItems = nextCartItems.filter(
+            (cartItem) => cartItem.id !== action.payload.id
+          );
+        }
+        return productItem;
+      });
+      state.productItems = tempProductItems;
+    },
     getTotals(state, action) {
       let { total, quantity } = state.cartItems.reduce(
         (cartTotal, cartItem) => {
@@ -61,9 +117,23 @@ const productsSlice = createSlice({
       total = parseFloat(total.toFixed(2));
       return { ...state, cartTotalQuantity: quantity, cartTotalAmount: total };
     },
+    clearCart(state, action) {
+      const productItemsTemp = state.productItems.map((product) => {
+        return { ...product, cartQuantity: 0 };
+      });
+      state.productItems = productItemsTemp;
+      state.cartItems = [];
+    },
   },
 });
 
-export const { productsFetch, addToCart, getTotals } = productsSlice.actions;
+export const {
+  productsFetch,
+  addToCart,
+  decreaseCart,
+  getTotals,
+  removeFromCart,
+  clearCart,
+} = productsSlice.actions;
 
 export default productsSlice.reducer;

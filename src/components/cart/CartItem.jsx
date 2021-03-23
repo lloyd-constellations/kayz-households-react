@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/slices/productsSlice";
+import { addToCart, decreaseCart, removeFromCart } from "../../store/slices/productsSlice";
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const CartItem = ({ cartItem }) => {
           {cartItem.price}
         </p>
         <div className="change-amount">
-          <span className="decrease-icon">
+          <span className="decrease-icon" onClick = {() => dispatch(decreaseCart(cartItem))}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -43,7 +43,7 @@ const CartItem = ({ cartItem }) => {
             </svg>
           </span>
         </div>
-        <span className="remove-icon">
+        <span className="remove-icon" onClick={() => dispatch(removeFromCart(cartItem))}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
