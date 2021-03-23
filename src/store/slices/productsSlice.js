@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import ProductItems from "../../components/products/ProductItems";
+import { toast } from "react-toastify";
 
 const initialState = {
   productItems: [],
@@ -32,8 +33,10 @@ const productsSlice = createSlice({
             nextCartItems[existingIndex] = {
               ...productItem,
             };
+            toast.success("Increased product quantity");
           } else {
             nextCartItems.push(productItem);
+            toast.success("Product added to cart");
           }
 
           state.cartItems = nextCartItems;
@@ -63,7 +66,8 @@ const productsSlice = createSlice({
             }
 
             state.cartItems = nextCartItems;
-          } else {
+            toast.error("Decreased product quantity");
+          } else if (productItem.cartQuantity === 1) {
             productItem = {
               ...productItem,
               cartQuantity: 0,
@@ -74,6 +78,8 @@ const productsSlice = createSlice({
             state.cartItems = nextCartItems.filter(
               (cartItem) => cartItem.id !== action.payload.id
             );
+
+            toast.error("Product removed from cart");
           }
         }
         return productItem;
@@ -93,6 +99,7 @@ const productsSlice = createSlice({
           state.cartItems = nextCartItems.filter(
             (cartItem) => cartItem.id !== action.payload.id
           );
+          toast.error("Product removed from cart");
         }
         return productItem;
       });
@@ -123,6 +130,7 @@ const productsSlice = createSlice({
       });
       state.productItems = productItemsTemp;
       state.cartItems = [];
+      toast.error("❌ Cart cleared");
     },
   },
 });
