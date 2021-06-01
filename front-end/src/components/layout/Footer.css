@@ -1,0 +1,73 @@
+footer {
+  background: rgb(17, 17, 17);
+  color: #fafafa;
+  padding: 3rem 3rem 0.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 60vh;
+  font-size: 15px;
+}
+.footer-details {
+  display: flex;
+  justify-content: space-between;
+}
+.address div {
+  margin: 0.4rem 0;
+}
+.address svg {
+  margin-right: 0.3rem;
+}
+.copyright {
+  padding: .9rem 0;
+  font-size: 14px;
+  color: rgb(175, 175, 175);
+  border-top: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* footer nav-links */
+.nav-links.footer{
+    display: flex;
+    flex-direction: column;
+}
+footer h3{
+    font-size: 15px;
+    font-weight: 600px;
+    text-transform: uppercase;
+}
+.nav-links.footer a{
+    font-size: 14px;
+    margin-bottom: 0.4rem;
+    text-transform: capitalize;
+}
+
+/* Responssive */
+@media (max-width: 768px) {
+  .footer-details{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .address{
+    margin: 2rem 0;
+  }
+  .nav-links{
+    margin-bottom: 2rem ;
+  }
+  .nav-links.nav-links.footer{
+    align-items: flex-start;
+  }
+.copyright{
+  flex-direction: column-reverse;
+  height: 11rem;
+}
+.copyright .payment-methods img{
+max-width: 60vw;
+}
+
+}
+
+@media (max-width: 480px) {
+
+}
